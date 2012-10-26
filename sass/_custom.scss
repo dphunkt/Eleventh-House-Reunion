@@ -1,0 +1,154 @@
+@import "foundation/settings";
+@import "compass/css3";
+
+@mixin sticky-footer($footer-height, $root-selector: unquote("#root"), $root-footer-selector: unquote("#root_footer"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%; }
+  #{$root-selector} {
+    clear: both;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$root-footer-selector} {
+      height: $footer-height; } }
+  #{$footer-selector} {
+    clear: both;
+    position: relative;
+    height: $footer-height; } 
+}
+ 
+.nav-bar { 
+    margin-top: 0;
+}
+
+fieldset {
+    legend {
+        background: none;
+    }
+}
+
+form {
+    margin-bottom: 0;
+}
+
+select {
+    width: auto;
+}
+
+ul.flyout li, .nav-bar li ul li {
+    border-left: none;
+}
+
+p {
+    text-shadow: 0 1px #fff;
+    &.small {
+        font-size: 12px;
+    }
+}
+
+.clear {
+    clear: both;    
+}
+
+.hidden {
+    display: none;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+.text-center {
+    text-align: center;    
+}
+
+.table {
+    display: table;
+}
+
+.table-cell {
+    display: table-cell;    
+}
+
+.bottom {
+    vertical-align: bottom;
+}
+
+.padTop {
+    padding-top: 15px;
+}
+
+.mainHeader {
+    display: table;
+    @media only screen and (max-width: $screenSmall - 1) {
+        display: block;
+        text-align: left;
+        .subheader {
+            text-align: left;
+            padding-bottom: 15px;
+        }        
+    }    
+}
+
+.subheader {
+    text-align: right;
+}
+
+.mainHeader > * {
+    display: table-cell;
+}
+
+.mainHeader h1 {
+    font-family: Monoton;
+    font-weight: normal;
+    padding: $columnGutter/2 0;
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #ccc;
+    @media only screen and (max-width: $screenSmall - 1) {
+        padding-bottom: 0;
+    }
+}
+
+.album-image {
+    -moz-box-shadow: inset 0 0 15px 15px #eee;
+    -webkit-box-shadow: inset 0 0 15px 15px #eee;
+    box-shadow: inset 0 0 15px 15px #eee;
+    background: url(/images/album-cover2.jpg) no-repeat center top;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 480px;
+    @media only screen and (max-width: $screenSmall - 1) {
+        height: 300px;
+    }
+}
+
+.social {
+    .right {
+        margin-left: 4px;
+    }
+}
+
+.mainContent {
+    padding-top: 15px;
+}
+
+.footer {
+    border-top: 1px solid #222;
+    clear: both;
+    background: lighten($black, 30%);
+    background-image: url(/images/gray_sand.png);    
+    padding: 5px;
+}
+
+form.custom span.custom {
+    background: #eee;
+    box-shadow: 0 0 2px #666;
+}
+
+@include sticky-footer(90px);
